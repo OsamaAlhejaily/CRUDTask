@@ -1,0 +1,25 @@
+
+
+<h2>Employee List</h2>
+<a class="btn btn-primary" asp-action="Create">Add Employee</a>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Salary</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Position</td>
+            <td>@item.Salary.ToString("F2")</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
